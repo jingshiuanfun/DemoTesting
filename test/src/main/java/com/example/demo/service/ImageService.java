@@ -25,16 +25,22 @@ import com.example.demo.dto.SearchImageDto;
 import com.example.demo.dto.json.RapidApiImageJsonDto;
 import com.example.demo.dto.json.RapidApiJsonDto;
 import com.example.demo.pojo.Image;
+import com.example.demo.reoisitory.AppExceptionRepo;
 import com.example.demo.reoisitory.ImageRepo;
+import com.example.demo.service.implement.IAppExceptionLogService;
+import com.example.demo.service.implement.IImageService;
 import com.example.demo.util.DemoUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 @Configurable
-public class ImageService extends AppExceptionLogImpl{
+public class ImageService implements IImageService{
 
 	@Autowired
 	ImageRepo imageRepo;
+	
+	@Autowired
+	IAppExceptionLogService appExceptionLog;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ImageService.class);
 	
@@ -108,7 +114,8 @@ public class ImageService extends AppExceptionLogImpl{
 			
 			return imageDtoList;
 		}catch(Exception e) {
-			this.insertException(e, ImageService.class);
+			
+			appExceptionLog.insertException(e, ImageService.class);
 			e.printStackTrace();
 			return new ArrayList<ImageDto>();
 		}

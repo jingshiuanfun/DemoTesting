@@ -9,7 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication(scanBasePackages = {
 		"com.example.demo",
 		"com.example.demo.controller",
-		"com.example.demo.serviceImpl"
+		"com.example.demo.service",
+		"com.example.demo.service.implement"
 		
 })
 @EntityScan("com.example.demo.pojo")

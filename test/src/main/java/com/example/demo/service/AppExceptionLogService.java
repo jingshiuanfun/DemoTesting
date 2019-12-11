@@ -8,14 +8,19 @@ import java.net.UnknownHostException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.pojo.AppExceptionLog;
 import com.example.demo.reoisitory.AppExceptionRepo;
+import com.example.demo.service.implement.IAppExceptionLogService;
 import com.example.demo.util.UtilityDateBean;
 
-public abstract class AppExceptionLogImpl {
+@Service
+@Configurable
+public class AppExceptionLogService implements IAppExceptionLogService{
 
-	private static final Logger logger = LoggerFactory.getLogger(AppExceptionLogImpl.class);
+	private static final Logger logger = LoggerFactory.getLogger(AppExceptionLogService.class);
 	
 	@Autowired
 	AppExceptionRepo repo;

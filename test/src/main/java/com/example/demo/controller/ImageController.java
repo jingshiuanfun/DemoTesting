@@ -18,13 +18,14 @@ import com.example.demo.common.JspPathEnum;
 import com.example.demo.common.RenderUrlConstant;
 import com.example.demo.dto.ImageDto;
 import com.example.demo.service.ImageService;
+import com.example.demo.service.implement.IImageService;
 
 @Controller
 @Configurable
 public class ImageController {
 
 	@Autowired
-	private ImageService imageService;
+	private IImageService imageService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(ImageController.class);
 	

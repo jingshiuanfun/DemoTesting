@@ -16,7 +16,7 @@ import com.example.demo.constant.EnvironmentConstant;
 import com.example.demo.dto.SearchImageDto;
 import com.example.demo.dto.json.RapidApiJsonDto;
 import com.example.demo.pojo.Image;
-import com.example.demo.service.AppExceptionLogImpl;
+import com.example.demo.service.AppExceptionLogService;
 import com.example.demo.util.DemoUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
