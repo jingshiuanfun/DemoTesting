@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.pojo.AppExceptionLog;
-import com.example.demo.reoisitory.AppExceptionRepo;
+import com.example.demo.repository.AppExceptionRepo;
 import com.example.demo.service.implement.IAppExceptionLogService;
 import com.example.demo.util.UtilityDateBean;
 

@@ -7,12 +7,12 @@ import com.example.demo.pojo.Image;
 
 public interface IImageService {
 
-	public List<Image> getAllData();
+	List<Image> getAllData();
 	
-	public List<ImageDto> getImageSearch(String searchValue);
+	List<ImageDto> getImageSearch(String searchValue);
 	
-	public List<ImageDto> findImageList();
+	List<ImageDto> findImageList();
 	
-	public List<ImageDto> getImageFromPapidApi(String searchValue);
+	List<ImageDto> getImageFromPapidApi(String searchValue);
 	
 }

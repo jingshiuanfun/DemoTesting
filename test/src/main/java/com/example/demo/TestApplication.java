@@ -14,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 		
 })
 @EntityScan("com.example.demo.pojo")
-@EnableJpaRepositories("com.example.demo.reoisitory")
+@EnableJpaRepositories("com.example.demo.repository")
 public class TestApplication extends SpringBootServletInitializer{
 	
 	public static void main(String[] args) {

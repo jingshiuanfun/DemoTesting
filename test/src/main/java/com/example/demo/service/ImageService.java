@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -19,14 +20,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.demo.common.QualifierStringConstant;
 import com.example.demo.constant.EnvironmentConstant;
 import com.example.demo.dto.ImageDto;
 import com.example.demo.dto.SearchImageDto;
 import com.example.demo.dto.json.RapidApiImageJsonDto;
 import com.example.demo.dto.json.RapidApiJsonDto;
 import com.example.demo.pojo.Image;
-import com.example.demo.reoisitory.AppExceptionRepo;
-import com.example.demo.reoisitory.ImageRepo;
+import com.example.demo.repository.ImageRepo;
 import com.example.demo.service.implement.IAppExceptionLogService;
 import com.example.demo.service.implement.IImageService;
 import com.example.demo.util.DemoUtil;
@@ -34,6 +35,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 @Configurable
+@Qualifier(QualifierStringConstant.MAIN)
 public class ImageService implements IImageService{
 
 	@Autowired

@@ -28,13 +28,12 @@ class TestApplicationTests {
 	void contextLoads() {
 		
 		try {	
-		
 			String searchValue = "Taylor Swift";
 			SearchImageDto searchPicDto = new SearchImageDto(searchValue);
 			Map<String, Object> dtoData = DemoUtil.introspect(searchPicDto);
 			String paramValue = DemoUtil.demoUrl(dtoData);
 						
-			Map<String, String> headerMap = new LinkedHashMap<String, String>();
+			Map headerMap = new LinkedHashMap();
 			headerMap.put(EnvironmentConstant.K_RAPIDAPI_HOST, EnvironmentConstant.V_RAPIDAPI_HOST);
 			headerMap.put(EnvironmentConstant.K_RAPIDAPI_KEY, EnvironmentConstant.V_RAPIDAPI_KEY);
 			

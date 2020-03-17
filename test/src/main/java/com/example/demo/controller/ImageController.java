@@ -1,11 +1,16 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
+import com.example.demo.common.ActionUrlConstant;
+import com.example.demo.common.JspPathEnum;
+import com.example.demo.common.QualifierStringConstant;
+import com.example.demo.common.RenderUrlConstant;
+import com.example.demo.dto.ImageDto;
+import com.example.demo.service.implement.IImageService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -13,28 +18,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.common.ActionUrlConstant;
-import com.example.demo.common.JspPathEnum;
-import com.example.demo.common.RenderUrlConstant;
-import com.example.demo.dto.ImageDto;
-import com.example.demo.service.ImageService;
-import com.example.demo.service.implement.IImageService;
+import java.util.List;
 
 @Controller
 @Configurable
 public class ImageController {
 
+	
+	private final IImageService imageService;
+	
 	@Autowired
-	private IImageService imageService;
+	public ImageController(@Qualifier(QualifierStringConstant.MAIN) IImageService imageService) {
+		this.imageService = imageService;
+	}
 	
 	private static final Logger logger = LoggerFactory.getLogger(ImageController.class);
 	
 	@RequestMapping(path = RenderUrlConstant.INDEX, method = RequestMethod.GET)
 	public String index(Model model) throws Exception{
 		List<ImageDto> imageDtoList = imageService.findImageList();
-		
+
 		model.addAttribute("imageList",imageDtoList);
-		
+
 		return JspPathEnum.DEMO_TEST.getJspPath();
 	}
 	
